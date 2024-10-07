@@ -17,26 +17,22 @@ const NavBar: React.FC<NavBarProps> = ({
   setPokemonIndex,
   pokemonList,
 }) => {
-  // Fonction pour aller au Pokemon précédent
-  const handlePrevious = () => {
-    if (pokemonIndex > 0) {
-      setPokemonIndex(pokemonIndex - 1);
-    }
-  };
-
-  // Fonction pour aller au Pokémon suivant
-  const handleNext = () => {
-    if (pokemonIndex < pokemonList.length) {
-      setPokemonIndex(pokemonIndex + 1);
-    }
-  };
   return (
     <>
-          {pokemonIndex > 0 && <button onClick={handlePrevious}>Précédent</button>}
-          
-          {pokemonIndex < pokemonList.length - 1 && (
-        <button onClick={handleNext}>Suivant</button>
-      )}
+      <ul style={{listStyle: "none",}}>
+        {pokemonList.map((pokemen, index) => (
+          <li key={pokemen.name}>
+            <button
+              onClick={() => setPokemonIndex(index)}
+              style={{
+                fontWeight: pokemonIndex === index ? "bold" : "normal",
+              }}
+            >
+              {pokemen.name}
+            </button>
+          </li>
+        ))}
+      </ul>
     </>
   );
 };
