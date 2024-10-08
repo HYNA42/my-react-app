@@ -19,7 +19,7 @@ const NavBar: React.FC<NavBarProps> = ({
 }) => {
   return (
     <>
-      <ul style={{listStyle: "none",}}>
+      <ul style={{ listStyle: "none" }}>
         {pokemonList.map((pokemen, index) => (
           <li key={pokemen.name}>
             <button
